@@ -1,0 +1,18 @@
+{
+    "id": "jn-chart",
+    "name": "uniapp vue3 echarts 微信小程序",
+    "displayName": "uniapp vue3 echarts 微信小程序",
+    "version": "1.0.0",
+    "description": "由 echarts-for-weixin 改造而来，可以使用vue3在微信小程序中显示echarts",
+    "keywords": [
+        "echarts",
+        "vue3",
+        "小程序"
+    ],
+    "dcloudext": {
+        "category": [
+            "前端组件",
+            "通用组件"
+        ]
+    }
+}
