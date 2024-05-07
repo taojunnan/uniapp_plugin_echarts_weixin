@@ -2,7 +2,7 @@
 
 > uniapp 插件，由大名鼎鼎的 [echarts-for-weixin](https://github.com/ecomfe/echarts-for-weixin) 改造而来，适用于vue3 微信小程序（其他小程序没试过，可以自行尝试）
 
-[github地址](https://github.com/taojunnan/uniapp_echarts_weixin)  
+[github地址](https://github.com/taojunnan/uniapp_plugin_echarts_weixin)  
 [插件地址](https://ext.dcloud.net.cn/plugin?id=15140)  
 
 请仔细阅读文档哦
