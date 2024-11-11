@@ -1,5 +1,5 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [
 		{
 		  "path" : "pages/welcome/welcome",
 		  "style" : 
@@ -43,6 +43,13 @@
 		  {
 		    "navigationBarTitleText" : "动态图表 demo",
 		    "enablePullDownRefresh" : false
+		  }
+		},
+		{
+		  "path" : "pages/saveImg/saveImg",
+		  "style" : 
+		  {
+		    "navigationBarTitleText" : "保存图片"
 		  }
 		}
 	],

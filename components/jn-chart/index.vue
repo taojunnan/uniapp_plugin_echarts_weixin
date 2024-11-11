@@ -1,6 +1,7 @@
 <template>
   <canvas
     type="2d"
+    :canvas-id="canvasId"
     class="jn-canvas"
     @touchstart="touchStart"
     @touchmove="touchMove"
@@ -29,6 +30,12 @@ const props = defineProps({
   lazyLoad: {
     type: Boolean,
     default: false
+  },
+  // canvas id
+  canvasId: {
+    required: false,
+    type: String,
+    default: 'jn-chart'
   }
 })
 
@@ -212,6 +219,30 @@ function wrapTouch(event, args) {
   
   return event;
 }
+
+/**
+ * 保存至图片
+ * @param {Object} opt 同uni.canvasToTempFilePath(opt)的第一个参数
+ * @see https://uniapp.dcloud.net.cn/api/canvas/canvasToTempFilePath.html#canvastotempfilepath
+ */
+function canvasToTempFilePath(opt) {
+  const proxy = instance.proxy
+  const query = proxy.createSelectorQuery()
+  
+  query
+    .select('.jn-canvas')
+    .fields({ node: true, size: true })
+    .exec(res => {
+      const { node } = res[0]
+      
+      opt.canvas = node
+      uni.canvasToTempFilePath(opt, instance)
+    })
+}
+
+defineExpose({
+  canvasToTempFilePath
+})
 </script>
 
 <style scoped>

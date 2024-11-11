@@ -25,9 +25,58 @@ import JnChart from '@/components/jn-chart/index.vue'
 
 | 参数     | 类型     | 必须 | 说明                                                         |
 | -------- | -------- | ---- | ------------------------------------------------------------ |
-| option   | Object   | 是   | 我们熟悉的`echarts option`配置项                              |
+| option   | Object   | 是   | 我们熟悉的`echarts option`配置项                             |
 | lazyLoad | Boolean  | 否   | 是否懒加载，默认`false`，如果`true`，第一次不会触发绘制，监听`option`变化后才触发绘制 |
+| canvasId | String   | 否   | canvas 组件的唯一标识符，默认jn-canvas                       |
 | @init    | Function | 否   | `v1.0.1` 初始化完成后的回调，返回`echarts`实例对象           |
+
+## 组件方法
+
+| 方法名               | 说明                   | 参数                                                         |
+| -------------------- | ---------------------- | ------------------------------------------------------------ |
+| canvasToTempFilePath | `V1.3.0`图表保存成图片 | opt，同[uni.canvasToTempFilePath](https://uniapp.dcloud.net.cn/api/canvas/canvasToTempFilePath.html#canvastotempfilepath)的第一个参数 |
+
+## 如何保存至图片
+
+```html
+<JnChart ref="chartRef" :option="option" />
+```
+
+```js
+const chartRef = ref(null)
+
+function saveImg() {
+  chartRef.value.canvasToTempFilePath({
+    success: res => {
+      console.debug('@save img success res = ', res)
+      const imgSrc = res.tempFilePath
+      
+      // 保存至相册
+      uni.saveImageToPhotosAlbum({
+        filePath: imgSrc,
+        success: (res) => {
+          console.debug('@保存相册成功', res)
+          uni.showToast({
+            title: '保存成功'
+          })
+        },
+        fail: (e) => {
+          console.debug('@保存相册失败', e)
+        }
+      })
+    },
+    fail: e => {
+      console.debug('@save img error', e)
+      uni.showToast({
+        icon: 'none',
+        title: '保存失败'
+      })
+    }
+  })
+}
+```
+
+
 
 ## 其他说明
 
