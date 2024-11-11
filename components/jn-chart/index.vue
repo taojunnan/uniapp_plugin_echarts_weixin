@@ -35,7 +35,7 @@ const props = defineProps({
   canvasId: {
     required: false,
     type: String,
-    default: 'jn-chart'
+    default: 'jn-canvas'
   }
 })
 
