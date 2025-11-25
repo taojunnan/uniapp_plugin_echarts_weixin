@@ -51,7 +51,13 @@
 		  {
 		    "navigationBarTitleText" : "保存图片"
 		  }
-		}
+    },
+    {
+      "path": "pages/dispose/dispose",
+      "style": {
+        "navigationBarTitleText": "测试销毁"
+      }
+    }
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

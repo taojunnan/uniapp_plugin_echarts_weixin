@@ -87,7 +87,7 @@ function init() {
       const { node, width, height } = res[0]
       
       const canvasNode = node
-      const canvasDpr = uni.getSystemInfoSync().devicePixelRatio
+      const canvasDpr = uni.getWindowInfo().pixelRatio
       const canvasWidth = width
       const canvasHeight = height
 
